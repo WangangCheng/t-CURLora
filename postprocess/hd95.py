@@ -33,14 +33,14 @@ def compute_hausdorff_distance(y_true, y_pred, spacing):
     return hausdorff
 
 hausdorff_results = []
-with open("/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/test.txt", "r") as file:
+with open("Your_Path/t-CURLora/Datasets/EADC/test.txt", "r") as file:
     subjects = [line.strip() for line in file.readlines()]
 
 # Iterate over the range of sub directories
 for sub in subjects:
     # Path for input files
-    mask_path = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_mask.nii.gz"
-    pred_path = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_post.nii"
+    mask_path = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_mask.nii.gz"
+    pred_path = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_post.nii"
 
     y_true_nii = nib.load(mask_path)
     y_pred_nii = nib.load(pred_path)
