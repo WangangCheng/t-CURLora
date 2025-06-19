@@ -21,10 +21,6 @@ from torch import nn
 
 from tqdm import tqdm
 os.environ['CUDA_VISIBLE_DEVICES']  = '0'
-#os.environ['MASTER_ADDR'] = 'localhost'
-#os.environ['MASTER_PORT'] = '5678'
-#os.environ["RANK"] = "0"
-#os.environ['WORLD_SIZE'] = '1'
 
 local_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 parser = argparse.ArgumentParser()
@@ -38,22 +34,15 @@ parser.add_argument('--description',
                     type=str)
 
 # DataSet Information
-parser.add_argument('--root', default='/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40', type=str)
-parser.add_argument('--train_dir', default='/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40', type=str)
-parser.add_argument('--val_dir', default='/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40', type=str)
+parser.add_argument('--root', default='./Datasets/EADC', type=str)
+parser.add_argument('--train_dir', default='./Datasets/EADC', type=str)
+parser.add_argument('--val_dir', default='./t-CURLora/Datasets/EADC', type=str)
 parser.add_argument('--mode', default='train', type=str)
 parser.add_argument('--train_file', default='train.txt', type=str)
 parser.add_argument('--val_file', default='valid.txt', type=str)
 parser.add_argument('--dataset', default='hippo', type=str)
 parser.add_argument('--model_name', default='UNETR', type=str)
-# parser.add_argument('--input_C', default=1, type=int)
-# parser.add_argument('--input_H', default=197, type=int)
-# parser.add_argument('--input_W', default=233, type=int)
-# parser.add_argument('--input_D', default=189, type=int)
-# parser.add_argument('--crop_H', default=128, type=int)
-# parser.add_argument('--crop_W', default=128, type=int)
-# parser.add_argument('--crop_D', default=128, type=int)
-# parser.add_argument('--output_D', default=155, type=int)
+
 # Training Information
 parser.add_argument('--lr', default=0.001, type=float)
 parser.add_argument('--weight_decay', default=2e-5, type=float)
