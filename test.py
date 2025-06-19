@@ -23,9 +23,9 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--user', default='Wangangcheng', type=str)
 
-parser.add_argument('--root', default='/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40', type=str)
+parser.add_argument('--root', default='./Datasets/EADC', type=str)
 
-parser.add_argument('--valid_dir', default='/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40', type=str)
+parser.add_argument('--valid_dir', default='./Datasets/EADC', type=str)
 
 parser.add_argument('--valid_file', default='test.txt', type=str)
 
@@ -37,7 +37,7 @@ parser.add_argument('--visual', default='visualization', type=str)
 
 parser.add_argument('--experiment', default='UNETR', type=str)
 
-parser.add_argument('--test_date', default='2025-06-05', type=str)
+parser.add_argument('--test_date', default='2025-XX-XX', type=str)
 
 parser.add_argument('--test_file', default='model_epoch_999.pth', type=str)
 
@@ -90,13 +90,6 @@ def main():
 )
 
 
-    #model = SwinUNETR(img_size = 128,in_channels = 1, out_channels = 2,feature_size = 48)
-    #model = AttentionUNet_4pools()
-    #model = DSNet()
-    #model = UNet(1,[32,48,64,96,128],2,net_mode='3d')
-    #model = UNet_4pools()
-    #_,model = TransBTS(dataset = 'brats',_conv_repr=True,_pe_type="learned")
-    #model = Effcient_AttenUnet(dataset='brats')
 
     model = model.cuda()
 
