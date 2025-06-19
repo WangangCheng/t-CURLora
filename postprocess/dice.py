@@ -5,7 +5,7 @@ from skimage.morphology import remove_small_objects
 import pandas as pd
 
 # 1. Read subject IDs from the file
-with open("/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/test.txt", "r") as file:
+with open("Your_Path/t-CURLora/Datasets/EADC/test.txt", "r") as file:
     subjects = [line.strip() for line in file.readlines()]
 
 # 定义去除孤立点的函数
@@ -18,9 +18,9 @@ def remove_small_objs(img_data):
 # 2. Modify the loop to iterate over the subjects list
 for sub in subjects:
     # Paths
-    input_path = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_mask.nii.gz"
-    input_file = f"/home/setdata/ubuntu2204/cwg/t-CURLora/output/submission/UNETR2025-06-05/{sub}.nii"
-    output_file = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_pred.nii"
+    input_path = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_mask.nii.gz"
+    input_file = f"Your_Path/t-CURLora/output/submission/UNETR2025-06-05/{sub}.nii"
+    output_file = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_pred.nii"
 
     # Read metadata with SimpleITK
     origin_img = sitk.ReadImage(input_path)
@@ -51,7 +51,7 @@ for sub in subjects:
     cleaned_img.SetDirection(direction)
 
     # Save the cleaned image to the post path
-    post_output_file = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_post.nii"
+    post_output_file = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_post.nii"
     sitk.WriteImage(cleaned_img, post_output_file)
 
 def dice_coefficient(y_true, y_pred):
@@ -87,8 +87,8 @@ dice_results = []
 # Modify the second loop to iterate over the subjects list
 for sub in subjects:
     # Path for input files
-    mask_path = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_mask.nii.gz"
-    pred_path = f"/home/setdata/ubuntu2204/cwg/t-CURLora/Datasets/EADC-LPBA40/{sub}/{sub}_post.nii"
+    mask_path = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_mask.nii.gz"
+    pred_path = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_post.nii"
 
     y_true = nib.load(mask_path)
     y_pred = nib.load(pred_path)
