@@ -488,30 +488,4 @@ class UNETR(nn.Module):
         out = self.out(out)
         out = self.Softmax(out)
         return out
-        
-
-if __name__ == '__main__':
-    img = torch.randn(1, 1, 128, 128, 128)
-    model = UNETR(
-    in_channels=1,
-    out_channels=2,
-    img_size=(128, 128, 128),
-    feature_size=16,
-    hidden_size=768,
-    mlp_dim=3072,
-    num_heads=12,
-    proj_type="conv",  # 使用proj_type参数
-    norm_name="instance",
-    res_block=True,
-    dropout_rate=0.1
-)
-    pred = model(img)
-    print(pred.shape)
-    flops = FlopCountAnalysis(model, img)
-    print(f'FLOPs: {flops.total() / 1e9:.3f} G')  # G表示十亿
-
-    # 计算和打印参数量
-    params = parameter_count_table(model)
-    print(params)
-    total_params = sum(p.numel() for p in model.parameters())
-    print(f'Total Parameters: {total_params / 1e6:.3f} M')  # M表示百万        
+          
