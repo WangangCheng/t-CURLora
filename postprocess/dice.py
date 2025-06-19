@@ -19,7 +19,7 @@ def remove_small_objs(img_data):
 for sub in subjects:
     # Paths
     input_path = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_mask.nii.gz"
-    input_file = f"Your_Path/t-CURLora/output/submission/UNETR2025-06-05/{sub}.nii"
+    input_file = f"Your_Path/t-CURLora/output/submission/UNETR2025-XX-XX/{sub}.nii"
     output_file = f"Your_Path/t-CURLora/Datasets/EADC/{sub}/{sub}_pred.nii"
 
     # Read metadata with SimpleITK
