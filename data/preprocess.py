@@ -8,21 +8,21 @@ import nibabel as nib
 
 # train
 train_set = {
-        'root': 'Your_Path/t-CURLora/Datasets/EADC-LPBA40',
+        'root': 'Your_Path/t-CURLora/Datasets/EADC',
         'flist': 'train.txt',
         'has_label': True
         }
 
 # test/validation data
 valid_set = {
-        'root': 'Your_Path/t-CURLora/Datasets/EADC-LPBA40',
+        'root': 'Your_Path/t-CURLora/Datasets/EADC',
         'flist': 'valid.txt',
         'has_label': True
         }
 
 
 test_set = {
-        'root': 'Your_Path/t-CURLora/Datasets/EADC-LPBA40',
+        'root': 'Your_Path/t-CURLora/Datasets/EADC',
         'flist': 'test.txt',
         'has_label': False
         }
